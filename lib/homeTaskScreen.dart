@@ -26,7 +26,7 @@ class _Hometaskscreen extends State<Hometaskscreen> {
              ],
            )),
             ElevatedButton(onPressed: (){
-              Navigator.push(context,MaterialPageRoute(builder: (context) => Hometaskscreen() ));
+              Navigator.pop(context,MaterialPageRoute(builder: (context) => Hometaskscreen() ));
             }, child: const Text("back to home"))
           ],
         ),

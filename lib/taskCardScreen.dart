@@ -1,3 +1,4 @@
+import 'package:app_test1/homeTaskScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -19,10 +20,17 @@ class _Taskcardscreen extends State<Taskcardscreen>{
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            ListTile( title: const Text("Exercise")),
-            ListTile( title: const Text("Walk")),
-            ListTile( title: const Text("Gym")),
-            ListTile( title: const Text("Study")),
+            Expanded(child:
+            ListView(children: [
+              ListTile( title: const Text("Exercise")),
+              ListTile( title: const Text("Walk")),
+              ListTile( title: const Text("Gym")),
+              ListTile( title: const Text("Study")),
+
+            ],) ),
+            ElevatedButton(onPressed: (){
+              Navigator.pop(context,MaterialPageRoute(builder: (context)=> Hometaskscreen()));
+            }, child: const Text("go home screen"))
           ],
         ),
       ),

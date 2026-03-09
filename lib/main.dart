@@ -19,16 +19,14 @@ class MyApp extends StatelessWidget {
 
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: Hometaskscreen(),
+      home: MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-
-  final String title;
+  const MyHomePage({super.key});
+  
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -37,10 +35,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
 
-  Text  username = const Text("Jatin12") ;
-  int password = 223;
+  String username = "jatin" ;
+  String password = "Jatin";
+
   TextEditingController usernameController = TextEditingController();
-  TextEditingController passContrlloer = TextEditingController();
+  TextEditingController passController = TextEditingController();
 
 
 
@@ -49,7 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+        title: Text("Daily Tasks"),
       ),
       body: Center(
         child: Column(
@@ -58,19 +57,26 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             TextField(
               controller: usernameController,
-                
+              decoration: InputDecoration(
+                labelText: " Username"
+              ),
                 maxLines: 2,
             ),
+            SizedBox(height: 10,),
             TextField(
 
-              controller: usernameController,
+              controller: passController,
+              decoration: InputDecoration(
+                labelText: "Passsword",
+                hintText: "48736"
+              ),
 
             ),
             ElevatedButton(onPressed: (){
-              if ( usernameController.value == username && passContrlloer== password ){
-                Navigator.push(context, MaterialPageRoute(builder: ))
+              if ( usernameController.text == username && passController.text== password ){
+                Navigator.push(context, MaterialPageRoute(builder:(context)=> Taskcategories() ));
               }else{
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("submit")));
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Try Again")));
               }
             }, child: const Text("Submit"))
 
