@@ -18,14 +18,13 @@ class _Taskcategories extends State<Taskcategories> {
       body:Center(
         child:
           Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
+
             children: [
 
                  GridView.builder(
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
-                        ),
+                   ),
                     itemBuilder:(context,index){
                       return  Card(
                         child:
@@ -34,7 +33,8 @@ class _Taskcategories extends State<Taskcategories> {
                           Text(cardList[index] ),
                         ),
                       );
-                    }
+                    },
+
                 ),
 
             ],

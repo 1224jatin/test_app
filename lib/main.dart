@@ -1,6 +1,7 @@
-import 'package:app_test1/taskCardScreen.dart';
 import 'package:app_test1/taskCategories.dart';
 import 'package:flutter/material.dart';
+
+import 'homeTaskScreen.dart';
 
 void main() {
   runApp( MyApp());
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
 
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: Taskcardscreen(),
+      home: Hometaskscreen(),
     );
   }
 }
@@ -57,6 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             TextField(
               controller: usernameController,
+                
                 maxLines: 2,
             ),
             TextField(
@@ -66,8 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ElevatedButton(onPressed: (){
               if ( usernameController.value == username && passContrlloer== password ){
-
-
+                Navigator.push(context, MaterialPageRoute(builder: ))
               }else{
                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("submit")));
               }
