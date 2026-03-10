@@ -1,5 +1,7 @@
 import 'package:app_test1/homeTaskScreen.dart';
 import 'package:app_test1/officeShoping.dart';
+import 'package:app_test1/shoppingTaskScreen.dart';
+import 'package:app_test1/taskCardScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -33,31 +35,27 @@ class _Taskcategories extends State<Taskcategories> {
                         crossAxisCount: 2,
                    ),
                     itemBuilder:(context,index){
-                      return  Card(
-                        child:
-                        InkWell(
+                      return GestureDetector(
+                        onTap: (){
+                          if(index == 0){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>Taskcardscreen()));
+                          }else if ( index ==1 ){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=> Hometaskscreen()));
+                          }else if( index==2) {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => Officetaskscreen()));
+                          } else if (index == 3 ){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=> Shoppingtaskscreen()));
+                            }
+                        },
+                        child: Container(
+                          padding: EdgeInsets.all(30),
                           child:
-                          Text(cardList[index] ),
-                          onTap: (){
-
-                           setState(() {
-                             selectedCard == index;
-                             if(selectedCard == cardList[index]){
-                               if(cardList[index] == 1){
-                                 Navigator.push(context,MaterialPageRoute(builder: (context )=> Taskcategories()));
-                               }else if (cardList[index]== 2){
-                                 Navigator.push(context,MaterialPageRoute(builder: (context )=> Hometaskscreen()));
-                               }else if (cardList[index] == 3 ){
-                                 Navigator.push(context,MaterialPageRoute(builder: (context )=> Officetaskscreen()));
-                               }
-                               else if( cardList[index]== 4){
-                                 Navigator.push(context , MaterialPageRoute(builder: (context)=> Officeshoping()));
-
-                               }
-                             }
-                           });
-                          },
-                        ),
+                          Card(
+                            child:
+                            Text(cardList[index]),
+                            color: Colors.blueGrey,
+                          ),
+                        )
                       );
                     },
                    itemCount: cardList.length,

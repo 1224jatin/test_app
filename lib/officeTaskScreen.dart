@@ -21,8 +21,16 @@ class _Officetaskscreen extends State<Officetaskscreen>{
             Expanded(child:
             ListView(
               children: [
-                ListTile(
-                  title: const Text("Assignment"),
+                Container(
+                  height: 20, width: 60
+                  ,child: 
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text("")
+                    ],
+                  ),
                 ),
                 ListTile(
                   title: const Text("Meeting"),

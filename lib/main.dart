@@ -1,5 +1,6 @@
 import 'package:app_test1/taskCategories.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'homeTaskScreen.dart';
 
@@ -36,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
   String username = "jatin" ;
-  String password = "Jatin";
+  int password = 1224;
 
   TextEditingController usernameController = TextEditingController();
   TextEditingController passController = TextEditingController();
@@ -57,6 +58,9 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             TextField(
               controller: usernameController,
+              keyboardType: TextInputType.emailAddress,
+
+              
               decoration: InputDecoration(
                 labelText: " Username"
               ),
@@ -66,6 +70,13 @@ class _MyHomePageState extends State<MyHomePage> {
             TextField(
 
               controller: passController,
+              keyboardType: TextInputType.number,
+            
+              inputFormatters: [
+                FilteringTextInputFormatter.digitsOnly,
+                
+                LengthLimitingTextInputFormatter(10),
+              ],
               decoration: InputDecoration(
                 labelText: "Passsword",
                 hintText: "48736"
@@ -73,7 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
             ),
             ElevatedButton(onPressed: (){
-              if ( usernameController.text == username && passController.text== password ){
+              if ( usernameController.text == username && int.tryParse(passController.text)== password ){
                 Navigator.push(context, MaterialPageRoute(builder:(context)=> Taskcategories() ));
               }else{
                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Try Again")));
